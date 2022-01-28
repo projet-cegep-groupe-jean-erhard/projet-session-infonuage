@@ -6,8 +6,8 @@ const s3 = new AWS.S3({ apiVersion: '2006-03-01' });
 exports.handler = async (event, context) => {
     //console.log('Received event:', JSON.stringify(event, null, 2));
 
-    const bucket = "app-mpd";
-    const key = "liste-mpd.json";
+    const bucket = "app-mdp";
+    const key = "liste-mdp.json";
     const params = {
         Bucket: bucket,
         Key: key,

@@ -26,43 +26,55 @@
     <h1>Gestionnaire de mots de passe</h1>
     <a class="action" href="#ajouter-mdp">Ajouter un mdp</a>
     <ul id="liste-mdp">
-      <li><a href="#mdp/{Mdp.id}" class="liste-mdp-item">{Mdp.nom}</a></li>
+      <li><a href="#mdp/{Mdp.id}" class="liste-mdp-item">{Mdp.siteWeb}</a></li>
     </ul>
   </div>
   </script>
 
   <script type="plain/text" id="html-vue-mdp">
   <div class="page">
-    <h1>Mdp</h1>
-    <h2 id="mdp-nom"></h2>
-    <span>Marque</span>
-    <p id="mdp-marque"></p>
-    <span>Description</span>
-    <p id="mdp-description"></p>
+    <span>Site web</span>
+    <p id="mdp-siteWeb"></p>
+    <span>Url</span>
+    <p id="mdp-url"></p>
+    <span>Mdp</span>
+    <p id="mdp-mdp"></p>
+    <span>Question secrète</span>
+    <p id="mdp-questionSecrete"></p>
+    <span>Reponse secrète</span>
+    <p id="mdp-reponseSecrete"></p>
     <a href="#" class="action">Revenir &agrave; la liste</a>
   </div>
   </script>
 
   <script type="plain/text" id="html-vue-ajouter-mdp">
   <div class="page">
-    <h1>Ajouter un mdp de Noël</h1>
+    <h1>Ajouter un mdp</h1>
     <form id="formulaire-ajouter">
       <fieldset>
-        <legend>Identification du mdp</legend>
+        <legend>Identification du site web</legend>
         <div>
-          <label for="mdp-nom">Nom</label>
-          <input type="text" id="mdp-nom"/>
+          <label for="mdp-siteWeb">Site web</label>
+          <input type="text" id="mdp-siteWeb"/>
         </div>
         <div>
-          <label for="mdp-marque">Marque</label>
-          <input type="text" id="mdp-marque"/>
+          <label for="mdp-url">Url</label>
+          <input type="text" id="mdp-url"/>
         </div>
       </fieldset>
       <fieldset>
-        <legend>D&eacute;tails sur le mdp</legend>
+        <legend>D&eacute;tails sur le mot de passe</legend>
         <div>
-          <label for="mdp-description">Description</label>
-          <textarea id="mdp-description"></textarea>
+          <label for="mdp-mdp">Mot de passe</label>
+          <input type="text" id="mdp-mdp"/>
+        </div>
+        <div>
+          <label for="mdp-questionSecrete">Question secrete</label>
+          <textarea id="mdp-questionSecrete"></textarea>
+        </div>
+        <div>
+          <label for="mdp-reponseSecrete">Reponse secrete</label>
+          <textarea id="mdp-reponseSecrete"></textarea>
         </div>
       </fieldset>
       <input class="action" type="submit" id="enregistrer" value="Enregistrer"/>

@@ -21,7 +21,6 @@
     let mdp = document.getElementById("mdp-mdp").value;
     let questionSecrete = document.getElementById("mdp-questionSecrete").value;
     let reponseSecrete = document.getElementById("mdp-reponseSecrete").value;
-    let id = document.getElementById("mdp-id").value;
 
     this.ajoutermdp(new Mdp(siteWeb, url, mdp, questionSecrete, reponseSecrete, null));
 
