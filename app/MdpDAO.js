@@ -1,6 +1,6 @@
 ﻿class MdpDAO {
     lister(action){
-        fetch("https://fsaulsurf7.execute-api.ca-central-1.amazonaws.com/default/lister", {mode:'cors'})
+        fetch("https://oq96urk4n1.execute-api.us-east-1.amazonaws.com/default/lister", {mode:'cors'})
             .then(response => response.json())
             .then(data =>
             {
@@ -22,7 +22,7 @@
             });
     }
     chercher(id, action){
-        fetch("https://3dfpczdxag.execute-api.ca-central-1.amazonaws.com/default/chercher-par-id" + '?id=' + id , {mode:'cors'})
+        fetch("https://dgtsne3sj7.execute-api.us-east-1.amazonaws.com/default/chercher-par-id" + '?id=' + id , {mode:'cors'})
             .then(response => response.json())
             .then(data =>
             {
@@ -39,7 +39,7 @@
     }
     ajouter(mdp, action){
         console.log(mdp);
-        fetch("https://achlj1hu2e.execute-api.ca-central-1.amazonaws.com/default/ajouter",
+        fetch("https://gz9e99jfqd.execute-api.us-east-1.amazonaws.com/default/ajouter",
             {
                 method: 'POST',
                 headers: {
