@@ -1,17 +1,17 @@
 ﻿class Application {
-  constructor(window, vueListeCadeau, vueCadeau, vueAjouterCadeau, cadeauDAO){
+  constructor(window, vueListemdp, vuemdp, vueAjoutermdp, mdpDAO){
 
     this.window = window;
 
-    this.vueListeCadeau = vueListeCadeau;
+    this.vueListemdp = vueListemdp;
 
-    this.vueCadeau = vueCadeau;
+    this.vuemdp = vuemdp;
 
-    this.vueAjouterCadeau = vueAjouterCadeau;
-    // C'est l'équivalent de function(cadeau){this.ajouterCadeau(cadeau)}
-    this.vueAjouterCadeau.initialiserAjouterCadeau(cadeau =>this.ajouterCadeau(cadeau));
+    this.vueAjoutermdp = vueAjoutermdp;
+    // C'est l'équivalent de function(mdp){this.ajoutermdp(mdp)}
+    this.vueAjoutermdp.initialiserAjoutermdp(mdp =>this.ajoutermdp(mdp));
 
-    this.cadeauDAO = cadeauDAO;
+    this.mdpDAO = mdpDAO;
 
     // C'est l'équivalent de function(){this.naviguer()}
     this.window.addEventListener("hashchange", () =>this.naviguer());
@@ -24,42 +24,42 @@
 
     if(!hash){
 
-      this.cadeauDAO.lister((listeCadeau) => this.afficherNouvelleListeCadeau(listeCadeau));
+      this.mdpDAO.lister((listemdp) => this.afficherNouvelleListemdp(listemdp));
 
-    }else if(hash.match(/^#ajouter-cadeau/)){
+    }else if(hash.match(/^#ajouter-mdp/)){
 
-      this.vueAjouterCadeau.afficher();
+      this.vueAjoutermdp.afficher();
 
     }else{
 
-      let navigation = hash.match(/^#cadeau\/([0-9]+)/);
-      let idCadeau = navigation[1];
+      let navigation = hash.match(/^#mdp\/([0-9]+)/);
+      let idmdp = navigation[1];
 
-      this.cadeauDAO.chercher(idCadeau, (cadeau) => this.afficherNouveauCadeau(cadeau));
+      this.mdpDAO.chercher(idmdp, (mdp) => this.afficherNouveaumdp(mdp));
     }
   }
 
-  afficherNouvelleListeCadeau(listeCadeau){
+  afficherNouvelleListemdp(listemdp){
 
-    console.log(listeCadeau);
-    this.vueListeCadeau.initialiserListeCadeau(listeCadeau);
-    this.vueListeCadeau.afficher();
+    console.log(listemdp);
+    this.vueListemdp.initialiserListemdp(listemdp);
+    this.vueListemdp.afficher();
   }
 
-  afficherNouveauCadeau(cadeau){
-    console.log(cadeau);
-    this.vueCadeau.initialiserCadeau(cadeau);
-    this.vueCadeau.afficher();
+  afficherNouveaumdp(mdp){
+    console.log(mdp);
+    this.vuemdp.initialisermdp(mdp);
+    this.vuemdp.afficher();
   }
 
-  ajouterCadeau(cadeau){
-    this.cadeauDAO.ajouter(cadeau, () => this.afficherListeCadeau());
+  ajoutermdp(mdp){
+    this.mdpDAO.ajouter(mdp, () => this.afficherListemdp());
   }
 
-  afficherListeCadeau(){
+  afficherListemdp(){
     this.window.location.hash = "#";
   }
 }
 
-new Application(window, new VueListeCadeau(), new VueCadeau(), new VueAjouterCadeau(), new CadeauDAO());
+new Application(window, new VueListeMdp(), new VueMdp(), new VueAjouterMdp(), new MdpDAO());
 

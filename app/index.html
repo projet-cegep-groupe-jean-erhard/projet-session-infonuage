@@ -1,14 +1,14 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
-  <title>Liste de cadeaux</title>
+  <title>Gestionnaire de mots de passe</title>
   <link rel="stylesheet" href="decoration/application.css">
   <style></style>
-  <script src="Cadeau.js"></script>
-  <script src="CadeauDAO.js"></script>
-  <script src="VueCadeau.js"></script>
-  <script src="VueListeCadeau.js"></script>
-  <script src="VueAjouterCadeau.js"></script>
+  <script src="Mdp.js"></script>
+  <script src="MdpDAO.js"></script>
+  <script src="VueMdp.js"></script>
+  <script src="VueListeMdp.js"></script>
+  <script src="VueAjouterMdp.js"></script>
   <!--
   https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript#Script_loading_strategies
   Scripts loaded using the defer attribute will run in the order they appear
@@ -18,51 +18,51 @@
 
 </head>
 <body>
-  <div id="page-chargement-application">Chargement de l'application liste de cadeaux</div>
+  <div id="page-chargement-application">Chargement de l'application gestionnaire de mots de passe</div>
 
 
-  <script type="plain/text" id="html-vue-liste-cadeau">
+  <script type="plain/text" id="html-vue-liste-mdp">
   <div class="page">
-    <h1>Liste de cadeaux</h1>
-    <a class="action" href="#ajouter-cadeau">Ajouter un cadeau</a>
-    <ul id="liste-cadeau">
-      <li><a href="#cadeau/{Cadeau.id}" class="liste-cadeau-item">{Cadeau.nom}</a></li>
+    <h1>Gestionnaire de mots de passe</h1>
+    <a class="action" href="#ajouter-mdp">Ajouter un mdp</a>
+    <ul id="liste-mdp">
+      <li><a href="#mdp/{Mdp.id}" class="liste-mdp-item">{Mdp.nom}</a></li>
     </ul>
   </div>
   </script>
 
-  <script type="plain/text" id="html-vue-cadeau">
+  <script type="plain/text" id="html-vue-mdp">
   <div class="page">
-    <h1>Cadeau</h1>
-    <h2 id="cadeau-nom"></h2>
+    <h1>Mdp</h1>
+    <h2 id="mdp-nom"></h2>
     <span>Marque</span>
-    <p id="cadeau-marque"></p>
+    <p id="mdp-marque"></p>
     <span>Description</span>
-    <p id="cadeau-description"></p>
+    <p id="mdp-description"></p>
     <a href="#" class="action">Revenir &agrave; la liste</a>
   </div>
   </script>
 
-  <script type="plain/text" id="html-vue-ajouter-cadeau">
+  <script type="plain/text" id="html-vue-ajouter-mdp">
   <div class="page">
-    <h1>Ajouter un cadeau de Noël</h1>
+    <h1>Ajouter un mdp de Noël</h1>
     <form id="formulaire-ajouter">
       <fieldset>
-        <legend>Identification du cadeau</legend>
+        <legend>Identification du mdp</legend>
         <div>
-          <label for="cadeau-nom">Nom</label>
-          <input type="text" id="cadeau-nom"/>
+          <label for="mdp-nom">Nom</label>
+          <input type="text" id="mdp-nom"/>
         </div>
         <div>
-          <label for="cadeau-marque">Marque</label>
-          <input type="text" id="cadeau-marque"/>
+          <label for="mdp-marque">Marque</label>
+          <input type="text" id="mdp-marque"/>
         </div>
       </fieldset>
       <fieldset>
-        <legend>D&eacute;tails sur le cadeau</legend>
+        <legend>D&eacute;tails sur le mdp</legend>
         <div>
-          <label for="cadeau-description">Description</label>
-          <textarea id="cadeau-description"></textarea>
+          <label for="mdp-description">Description</label>
+          <textarea id="mdp-description"></textarea>
         </div>
       </fieldset>
       <input class="action" type="submit" id="enregistrer" value="Enregistrer"/>
