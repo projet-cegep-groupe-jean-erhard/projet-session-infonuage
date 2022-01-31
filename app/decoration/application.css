@@ -1,19 +1,11 @@
 ﻿@import "normalize.css" ;
 
-@font-face {
-  font-family: 'Cream Cake';
-  src: url('font/cream_cake/Cream Cake.ttf')  format('truetype');
-}
 
-@font-face {
-  font-family: 'Hello Christmas Icon';
-  src: url('font/hello_christmas_icons/Hello-Christmas-Icon-trial.ttf')  format('truetype');
-}
 
 :root {
   --theme-rouge: #fd341f;
   --theme-blanc-transparent: rgba(255,255,255,0.3);
-  --theme-bleu-pale: rgba(151,219,246,1);
+  --theme-bleu-pale: rgb(7, 107, 204);
   --theme-bleu-fonce: rgba(63,155,191,1);
   --theme-vert: #408450;
   --theme-blanc: white;
@@ -23,7 +15,6 @@
 }
 
 html {
-  font-family:'Cream Cake', sans-serif;
   font-size:48px;
 }
 
@@ -59,7 +50,6 @@ html {
    height:1rem;
    width:1rem;
 
-   font-family:'Hello Christmas Icon', sans-serif;
 
 
 }
@@ -151,7 +141,6 @@ textarea {
   position:relative;
   display:block;
   text-decoration: none;
-  font-family:sans-serif;
   background-color:#fd9f44;
   color:var(--theme-blanc);
   border:0px transparent solid;
