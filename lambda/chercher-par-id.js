@@ -18,8 +18,8 @@ exports.handler = async (event) => {
     }
 
     const params = {
-        Bucket: "app-mdp",
-        Key: "liste-mdp.json",
+        Bucket: "*********************************************************",
+        Key: "*********************************************************",
     };
 
     const data = await s3.getObject(params).promise();
