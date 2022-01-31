@@ -15,7 +15,6 @@
     document.getElementById("mdp-mdp").innerHTML = this.mdp.mdp;
     document.getElementById("mdp-questionSecrete").innerHTML = this.mdp.questionSecrete;
     document.getElementById("mdp-reponseSecrete").innerHTML = this.mdp.reponseSecrete;
-    document.getElementById("mdp-id").innerHTML = this.mdp.id;
   }
 
 }
