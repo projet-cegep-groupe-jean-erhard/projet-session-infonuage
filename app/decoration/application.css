@@ -3,10 +3,10 @@
 
 
 :root {
-  --theme-rouge: #fd341f;
+  --theme-rouge: #e8e8e8;
   --theme-blanc-transparent: rgba(255,255,255,0.3);
-  --theme-bleu-pale: rgb(7, 107, 204);
-  --theme-bleu-fonce: rgba(63,155,191,1);
+  --theme-bleu-tres-fonce: rgb(3, 56, 108);
+  --theme-bleu-fonce: rgb(7, 107, 204);
   --theme-vert: #408450;
   --theme-blanc: white;
   --theme-noir: black;
@@ -16,6 +16,7 @@
 
 html {
   font-size:48px;
+  background-color:var(--theme-bleu-fonce);
 }
 
 #liste-mpd {
@@ -69,14 +70,19 @@ textarea {
   border-radius:var(--theme-bordure-rondeur);
 }
 
+.cadena {
+  height: 150px;
+  width: 150px;
+  background-image: url(illustration/cadena.gif);
+  background-repeat:no-repeat;
+  background-size: contain;
+  margin: 250px auto;
+}
+
 #page-chargement-application{
   position:relative;
   height:100vh;
-  background-image:url(illustration/vanilla-js.png);
-  background-repeat:no-repeat;
-  background-size:contain;
-  background-position:bottom center;
-  background-attachment:fixed;
+
 
   text-align:center;
   font-size:2rem;
@@ -84,9 +90,8 @@ textarea {
   line-height:1.8rem;
 
   padding:10%;
-  color:var(--theme-blanc);
-  text-shadow: 2px 2px var(--theme-noir);
-  animation: pulse 1.5s infinite;
+  color:var(--theme-rouge);
+  animation: pulse 1.4s infinite;
   animation-direction: alternate;
 }
 
@@ -95,7 +100,7 @@ textarea {
     background-color:var(--theme-bleu-fonce);
   }
   100% {
-    background-color:var(--theme-bleu-pale);
+    background-color:var(--theme-bleu-tres-fonce);
   }
 }
 
@@ -108,7 +113,6 @@ textarea {
   min-height: 100vh;
   box-sizing: border-box;
 
-  background-image:url(illustration/personne-mpd.png);
   background-repeat:no-repeat;
   background-size:cover;
   background-position:right bottom;
@@ -123,8 +127,6 @@ textarea {
   font-size:2rem;
   font-weight:normal;
   line-height:1.8rem;
-  color:var(--theme-vert);
-  text-shadow: 2px 2px var(--theme-blanc);
 
 }
 
@@ -141,21 +143,40 @@ textarea {
   position:relative;
   display:block;
   text-decoration: none;
-  background-color:#fd9f44;
-  color:var(--theme-blanc);
-  border:0px transparent solid;
-  border-radius:var(--theme-bordure-rondeur);
+  background-color: white;
+  color: var(--theme-bleu-fonce);
+  border-radius: 0.25em;
   padding:0.25rem;
   font-size:1rem;
   text-align:center;
-  width:50%;
+  width:45%;
   margin:0 auto;
   box-sizing: border-box;
   margin-top:0.25rem;
   margin-bottom:0.25rem;
-  box-shadow: 2px 2px var(--theme-blanc);
 }
 
-.action:active {
-  border:0px transparent solid;
+.action:hover {
+  color: white;
+  background-color: red;
+}
+li {
+  list-style: none;
+  padding-top: 20px;
+}
+a {
+  color: var(--theme-rouge);
+  text-decoration:none;
+  background-color: var(--theme-bleu-tres-fonce);
+
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+#secu {
+  position: fixed;
+  top: 55%;
+  left: 70%;
+  height: 400px;
+  border-radius: 15px;
 }
