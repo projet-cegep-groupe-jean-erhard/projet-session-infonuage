@@ -7,10 +7,10 @@ const querystring = require('querystring');
 exports.handler = async (event) => {
     const postdata = querystring.parse(event.body);
 
-    let mdp = null;
-    let mdpjson = postdata["mdpjson"];
-    if(mdpjson){
-        mdp = JSON.parse(mdpjson);
+    let motDePasse = null;
+    let motDePassejson = postdata["motDePassejson"];
+    if(motDePassejson){
+        motDePasse = JSON.parse(motDePassejson);
     }
 
     let response = {
@@ -18,26 +18,26 @@ exports.handler = async (event) => {
         headers: {
             "Access-Control-Allow-Origin" : "*"
         },
-        body : "Pas de mdp reçu",
+        body : "Pas de motDePasse reçu",
     };
 
-    if (mdp == null) {
+    if (motDePasse == null) {
         return response;
     }
 
-    mdp.id = Date.now();
+    motDePasse.id = Date.now();
 
     const params = {
-        Bucket: "*********************************************************",
-        Key: "*********************************************************",
+        Bucket: "app-mdp",
+        Key: "liste-motDePasse.json",
     };
 
     let data = await s3.getObject(params).promise();
-    let listeMdpJson = data.Body.toString('utf-8');
-    const listeMdp = JSON.parse(listeMdpJson);
-    listeMdp.push(mdp);
-    listeMdpJson = JSON.stringify(listeMdp);
-    params.Body  = listeMdpJson;
+    let listemotDePasseJson = data.Body.toString('utf-8');
+    const listemotDePasse = JSON.parse(listemotDePasseJson);
+    listemotDePasse.push(motDePasse);
+    listemotDePasseJson = JSON.stringify(listemotDePasse);
+    params.Body  = listemotDePasseJson;
     data = await s3.putObject(params).promise();
 
     response = {
@@ -45,7 +45,7 @@ exports.handler = async (event) => {
         headers: {
             "Access-Control-Allow-Origin" : "*"
         },
-        body: mdp.id
+        body: motDePasse.id
     };
 
     return response;

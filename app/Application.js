@@ -1,17 +1,17 @@
 ﻿class Application {
-  constructor(window, vueListemdp, vuemdp, vueAjoutermdp, mdpDAO){
+  constructor(window, vueListemotDePasse, vuemotDePasse, vueAjoutermotDePasse, motDePasseDAO){
 
     this.window = window;
 
-    this.vueListemdp = vueListemdp;
+    this.vueListemotDePasse = vueListemotDePasse;
 
-    this.vuemdp = vuemdp;
+    this.vuemotDePasse = vuemotDePasse;
 
-    this.vueAjoutermdp = vueAjoutermdp;
-    // C'est l'équivalent de function(mdp){this.ajoutermdp(mdp)}
-    this.vueAjoutermdp.initialiserAjoutermdp(mdp =>this.ajoutermdp(mdp));
+    this.vueAjoutermotDePasse = vueAjoutermotDePasse;
+    // C'est l'équivalent de function(motDePasse){this.ajoutermotDePasse(motDePasse)}
+    this.vueAjoutermotDePasse.initialiserAjoutermotDePasse(motDePasse =>this.ajoutermotDePasse(motDePasse));
 
-    this.mdpDAO = mdpDAO;
+    this.motDePasseDAO = motDePasseDAO;
 
     // C'est l'équivalent de function(){this.naviguer()}
     this.window.addEventListener("hashchange", () =>this.naviguer());
@@ -24,42 +24,42 @@
 
     if(!hash){
 
-      this.mdpDAO.lister((listemdp) => this.afficherNouvelleListemdp(listemdp));
+      this.motDePasseDAO.lister((listemotDePasse) => this.afficherNouvelleListemotDePasse(listemotDePasse));
 
-    }else if(hash.match(/^#ajouter-mdp/)){
+    }else if(hash.match(/^#ajouter-motDePasse/)){
 
-      this.vueAjoutermdp.afficher();
+      this.vueAjoutermotDePasse.afficher();
 
     }else{
 
-      let navigation = hash.match(/^#mdp\/([0-9]+)/);
-      let idmdp = navigation[1];
+      let navigation = hash.match(/^#motDePasse\/([0-9]+)/);
+      let idmotDePasse = navigation[1];
 
-      this.mdpDAO.chercher(idmdp, (mdp) => this.afficherNouveaumdp(mdp));
+      this.motDePasseDAO.chercher(idmotDePasse, (motDePasse) => this.afficherNouveaumotDePasse(motDePasse));
     }
   }
 
-  afficherNouvelleListemdp(listemdp){
+  afficherNouvelleListemotDePasse(listemotDePasse){
 
-    console.log(listemdp);
-    this.vueListemdp.initialiserListemdp(listemdp);
-    this.vueListemdp.afficher();
+    console.log(listemotDePasse);
+    this.vueListemotDePasse.initialiserListemotDePasse(listemotDePasse);
+    this.vueListemotDePasse.afficher();
   }
 
-  afficherNouveaumdp(mdp){
-    console.log(mdp);
-    this.vuemdp.initialisermdp(mdp);
-    this.vuemdp.afficher();
+  afficherNouveaumotDePasse(motDePasse){
+    console.log(motDePasse);
+    this.vuemotDePasse.initialisermotDePasse(motDePasse);
+    this.vuemotDePasse.afficher();
   }
 
-  ajoutermdp(mdp){
-    this.mdpDAO.ajouter(mdp, () => this.afficherListemdp());
+  ajoutermotDePasse(motDePasse){
+    this.motDePasseDAO.ajouter(motDePasse, () => this.afficherListemotDePasse());
   }
 
-  afficherListemdp(){
+  afficherListemotDePasse(){
     this.window.location.hash = "#";
   }
 }
 
-new Application(window, new VueListeMdp(), new VueMdp(), new VueAjouterMdp(), new MdpDAO());
+new Application(window, new VueListeMotDePasse(), new VueMotDePasse(), new VueAjouterMotDePasse(), new MotDePasseDAO());
 

@@ -11,30 +11,30 @@ exports.handler = async (event) => {
         headers: {
             "Access-Control-Allow-Origin" : "*"
         },
-        body: 'Vous devez donner un id de mdp'
+        body: 'Vous devez donner un id de motDePasse'
     };
     if (id == null) {
         return response;
     }
 
     const params = {
-        Bucket: "*********************************************************",
-        Key: "*********************************************************",
+        Bucket: "app-mdp",
+        Key: "liste-motDePasse.json",
     };
 
     const data = await s3.getObject(params).promise();
     console.log("Raw text:\n" + data.Body.toString('utf-8'));
-    const listeMdpJson = data.Body.toString('utf-8');
-    const listeMdp = JSON.parse(listeMdpJson);
+    const listemotDePasseJson = data.Body.toString('utf-8');
+    const listemotDePasse = JSON.parse(listemotDePasseJson);
 
-    let mdp = listeMdp.find(mdp => mdp.id == id);
+    let motDePasse = listemotDePasse.find(motDePasse => motDePasse.id == id);
 
     response = {
         statusCode: 200,
         headers: {
             "Access-Control-Allow-Origin" : "*"
         },
-        body: JSON.stringify(mdp).toString('utf-8')
+        body: JSON.stringify(motDePasse).toString('utf-8')
     };
 
     return response;
